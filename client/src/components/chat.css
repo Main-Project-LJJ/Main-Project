@@ -1,0 +1,112 @@
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(212, 211, 211);
+  }
+  
+  .chat {
+    overflow: hidden;
+    background: rgba(185, 185, 185,0.5);
+    height: 80vh;
+    width:50%;
+    position: relative;
+    border-radius: 20px;
+    padding: 1% 1%;
+    border: 3px solid white;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  }
+  
+  .dis {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    overflow-y: auto;
+    padding: 10px;
+    background: transparent;
+    border-bottom: #333;
+  }
+
+  .dis::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .dis::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+  }
+
+  .dis::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 10px;
+  }
+
+  .dis::-webkit-scrollbar-thumb:hover {
+    background: #0097fb;
+  }
+  
+  .msg {
+    display: flex;
+    background-color: black;
+    height:5vh;
+    width: 80%;
+    position: absolute;
+    bottom: 3.5%;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: .5% 1%;
+    border: solid 3px white;
+  }
+  
+  .input {
+    height: 40%;
+    width: 70%;
+    border-radius: 30px;
+    border: solid 3px rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255) !important;
+    color: black;
+    padding: .5% 1.5%;
+    font-size: 90%;
+  }
+  
+  .i {
+    cursor: pointer;
+    fill: #fff; 
+    margin-left: 10px; 
+    background: transparent;
+  }
+  
+  .user {
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    text-align: right;
+    padding: 1.5% 1.5%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: #fff;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+  .bot {
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+    text-align: left;
+    padding: 1.5% 1.5%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #e0e0e0;
+    color: #333;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+  .tt {
+    padding: 1% 1%;
+    background: transparent;
+  }
