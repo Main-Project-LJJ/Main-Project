@@ -72,6 +72,10 @@
     padding: .5% 1.5%;
     font-size: 90%;
   }
+
+  .input:focus{
+    outline: none;
+  }
   
   .i {
     cursor: pointer;
