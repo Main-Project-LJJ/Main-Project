@@ -4,21 +4,21 @@ import axios from 'axios';
 
 const UserMessage = ({ text }) => {
   const content = Object.values(text).map((value, index) => (
-    <div className='tt' key={index}>{value}</div>
+    <div className='tt' key={index}><p>{value}</p></div>
   ));
   return <div className="user">{content}</div>
 };
 
 const BotMessage = ({ text }) => {
   const content = Object.values(text).map((value, index) => (
-    <div className='tt' key={index}>{value}</div>
+    <div className='tt' key={index}><li><p>{value}</p></li></div>
   ));
   return <div className="bot">{content}</div>
 };
 
 const Chat = () => {
   const [input, setInput] = useState('');
-  const [chatMessages, setChatMessages] = useState([{type:'bot',text:['hello']}]);
+  const [chatMessages, setChatMessages] = useState([{type:'bot',text:["Hello and welcome! I'm here and ready to help. What brings you to our conversation?"]}]);
   const messagesEndRef = useRef();
 
   const sendMsg = () => {
@@ -38,6 +38,9 @@ const Chat = () => {
       })
       .catch(err =>{
         console.log(err);
+        setChatMessages((prevMessages) => [
+          ...prevMessages,{type: 'bot', text: ["Oops! Something went wrong. Please try again in a moment."] }
+        ]);
       })
       
       setInput('');
