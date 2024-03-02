@@ -91,7 +91,7 @@ def chat():
                 if not coll.find_one({'query':find}):
 
                     data={
-                        "key":"answered",
+                        "key":"not answered",
                         "query":find
                     }
 

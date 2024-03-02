@@ -64,10 +64,10 @@
   }
   
   .input {
-    height: 40%;
-    width: 70%;
-    border-radius: 30px;
-    border: solid 3px rgb(255, 255, 255);
+    height: 55%;
+    width: 75%;
+    border-radius: 12px;
+    border: solid 1px rgb(255, 255, 255);
     background-color: rgb(255, 255, 255) !important;
     color: black;
     padding: .5% 1.5%;
@@ -76,7 +76,6 @@
 
   .input:focus{
     outline: none;
-    
   }
   
   .i {
