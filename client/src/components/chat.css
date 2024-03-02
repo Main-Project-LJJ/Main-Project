@@ -3,12 +3,13 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(212, 211, 211);
+    /* background-color: rgb(212, 211, 211); */
+    background: linear-gradient(to bottom, #3374ff 0%, #ff99cc 100%);
   }
   
   .chat {
     overflow: hidden;
-    background: rgba(185, 185, 185,0.5);
+    background: white;
     height: 80vh;
     width:50%;
     position: relative;
@@ -48,7 +49,7 @@
   
   .msg {
     display: flex;
-    background-color: black;
+    background-color: black; 
     height:5vh;
     width: 80%;
     position: absolute;
@@ -88,8 +89,9 @@
   .user, .bot{
     display: grid;
     align-items: center;
-    padding: 1.5% 1.5%;
-    border-radius: 8px;
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 28px;
     margin-bottom: 10px;
     word-wrap: break-word;
     max-width: 150%;
@@ -97,15 +99,20 @@
 
   .user {
     align-self: flex-end;
-    text-align: right;
-    background-color: #3498db;
+    text-align: left;
+    background: linear-gradient(to bottom, #3374ff 0%, #ff99cc 100%);
+    /* color: black; */
+    display: inline;
+    padding: 10px;
+    margin: 10px;
+    white-space: nowrap;
     color: #fff;
   }
   .bot {
     align-self: flex-start;
     text-align: left;
-    background-color: #e0e0e0;
-    color: #333;
+    background-color: rgb(246, 246, 238);
+    border-color: #fff;
   }
   .tt {
     padding: 1% 1%;
