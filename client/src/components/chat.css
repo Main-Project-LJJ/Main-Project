@@ -4,7 +4,7 @@
     align-items: center;
     height: 100vh;
     /* background-color: rgb(212, 211, 211); */
-    background: linear-gradient(to bottom, #3374ff 0%, #ff99cc 100%);
+    background: linear-gradient(to bottom, #7895d4 0%, #d8a5bf 100%);
   }
   
   .chat {
@@ -49,9 +49,9 @@
   
   .msg {
     display: flex;
-    background-color: black; 
-    height:5vh;
-    width: 80%;
+    background-color: rgb(61, 59, 59); 
+    height:8vh;
+    width: 90%;
     position: absolute;
     bottom: 3.5%;
     justify-content: space-around;
@@ -80,7 +80,7 @@
   
   .i {
     cursor: pointer;
-    fill: #fff; 
+    fill: #ffffff; 
     margin-left: 10px; 
     background: transparent;
   }
