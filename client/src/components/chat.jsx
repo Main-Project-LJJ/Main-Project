@@ -21,6 +21,7 @@ const Chat = () => {
   const [chatMessages, setChatMessages] = useState([{type:'bot',text:["Hello and welcome! I'm here and ready to help. What brings you to our conversation?"]}]);
   const [mic, setMic]= useState(false);
   const messagesEndRef = useRef();
+  const inputRef = useRef();
 
   const sendMsg = () => {
     if (input.trim() !== '') {
@@ -45,6 +46,7 @@ const Chat = () => {
       })
       
       setInput('');
+      inputRef.current.focus();
     }
   };
 
@@ -75,6 +77,7 @@ const Chat = () => {
           ) : (
               <>
               <input
+              ref={inputRef}
               className='input'
               type="text"
               value={input}
