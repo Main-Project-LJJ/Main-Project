@@ -39,12 +39,12 @@
   }
 
   .dis::-webkit-scrollbar-thumb {
-    background: #5e6161;
+    background: #2da1e4;
     border-radius: 10px;
   }
 
   .dis::-webkit-scrollbar-thumb:hover {
-    background: #707274;
+    background: #7baddf;
   }
   
   .msg {
@@ -99,7 +99,7 @@
   .user {
     align-self: flex-end;
     text-align: left;
-    background: linear-gradient(to bottom, #3374ff 0%, #ff99cc 100%);
+    background: linear-gradient(to bottom, #525353 0%, #e495c6 100%);
     /* color: black; */
     display: inline;
     padding: 12px;
