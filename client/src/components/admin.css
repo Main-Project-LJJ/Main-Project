@@ -4,7 +4,7 @@
     align-items: center;
     height: 100vh;
     /* background: linear-gradient(to bottom, #ccccff 0%, #ffcc99 100%); */
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(97, 255, 202) 0%, rgb(166, 253, 238) 90.1% );
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(153, 196, 236) 0%, rgb(115, 167, 206) 90.1% );
 }
 
 .container {
@@ -55,13 +55,13 @@
     width: 8px;
 }
 .body-div::-webkit-scrollbar-track {
-    background: #333;
+    background: #cccccc;
     border-radius: 10px;
 }
 .body-div::-webkit-scrollbar-thumb {
-    background: #3498db;
+    background: #4d4d4d;
     border-radius: 10px;
 }
 .body-div::-webkit-scrollbar-thumb:hover {
-    background: #0097fb;
+    background: #666666;
 }

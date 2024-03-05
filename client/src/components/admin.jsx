@@ -41,11 +41,11 @@ const admin = () =>{
           border: '1px solid #ccc',
           borderRadius: '4px',
           boxShadow: state.isFocused ? '0 0 0 2px #3366cc' : null,
-          backgroundColor: '#E1EBEE',
+          // backgroundColor: '#E1EBEE',
         }),
         option: (provided, state) => ({
           ...provided,
-          backgroundColor: state.isSelected ? '#3366cc' : '#E1EBEE',
+          backgroundColor: state.isSelected ? '#3366cc' : '#white',
           color: state.isSelected ? 'white' : 'black',
         }),
       };
@@ -66,7 +66,7 @@ const admin = () =>{
               </div>
               <div className='body-div'>
                 {data.map((item,index)=>(
-                    <div className='data' key={index} style={{backgroundColor: index % 2 == 0 ? '#ffffff' : '#6CB4EE'}}>
+                    <div className='data' key={index} style={{backgroundColor: index % 2 == 0 ? '#ebebe0' : '#cdcdb1'}}>
                       <div>{item.query}</div>
                       <div>{item.key}</div>
                     </div>
