@@ -4,7 +4,7 @@
     align-items: center;
     height: 100vh;
     /* background: linear-gradient(to bottom, #ccccff 0%, #ffcc99 100%); */
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(97, 255, 208) 0%, rgb(166, 253, 241) 90.1% );
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(97, 255, 202) 0%, rgb(166, 253, 238) 90.1% );
 }
 
 .container {
