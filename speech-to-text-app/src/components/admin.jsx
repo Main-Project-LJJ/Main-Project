@@ -65,7 +65,7 @@ const admin = () =>{
               </div>
               <div className='body-div'>
                 {data.map((item,index)=>(
-                    <div className='data' key={index} style={{backgroundColor: index % 2 == 0 ? '#ebebe0' : '#cdcdb1'}}>
+                    <div className='data' key={index} style={{backgroundColor: index % 2 === 0 ? '#ebebe0' : '#cdcdb1'}}>
                       <div>{item.query}</div>
                       <div>{item.key}</div>
                     </div>
