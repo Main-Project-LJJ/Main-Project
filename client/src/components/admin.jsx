@@ -3,7 +3,7 @@ import './admin.css';
 import Select from 'react-select';
 import axios from 'axios';
 
-const admin = () =>{
+const Admin = () =>{
     const [selected,setSelected]=useState({ value: 'all', label: 'All' });
     const [search,setSearch]=useState('all');
     const [data,setData]=useState([]);
@@ -65,7 +65,7 @@ const admin = () =>{
               </div>
               <div className='body-div'>
                 {data.map((item,index)=>(
-                    <div className='data' key={index} style={{backgroundColor: index % 2 === 0 ? '#ebebe0' : '#cdcdb1'}}>
+                    <div className='data' key={index} style={{backgroundColor: index % 2 === 0 ? '#f2f2f2' : '#bfbfbf'}}>
                       <div>{item.query}</div>
                       <div>{item.key}</div>
                     </div>
@@ -76,4 +76,4 @@ const admin = () =>{
     )
 }
 
-export default admin;
+export default Admin;

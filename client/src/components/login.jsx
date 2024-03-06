@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const login = () => {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const link = useNavigate();
@@ -81,4 +81,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
