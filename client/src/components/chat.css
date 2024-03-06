@@ -33,12 +33,12 @@
   }
 
   .dis::-webkit-scrollbar-track {
-    background: #333;
+    background: #6d6c6c;
     border-radius: 10px;
   }
 
   .dis::-webkit-scrollbar-thumb {
-    background: #2da1e4;
+    background: #7895d4;
     border-radius: 10px;
   }
 
@@ -100,6 +100,13 @@
     height: 35%;
     width: 5%;
     padding: 1% 1%;
+    transition: .5s;
+  }
+
+  .rec:hover{
+    background-color: #6c6c6c;
+    height: 37.5%;
+    width: 5.5%;
   }
   
   .user, .bot{
