@@ -26,6 +26,7 @@
     padding: 10px;
     background: transparent;
     border-bottom: #333;
+    gap: 2%;
   }
 
   .dis::-webkit-scrollbar {
@@ -116,7 +117,8 @@
     border-radius: 18px;
     margin-bottom: 10px;
     word-wrap: break-word;
-    max-width: 150%;
+    max-width: 80%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
   .user {
