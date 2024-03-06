@@ -62,15 +62,24 @@
     border: solid 3px white;
   }
   
-  .input {
+  .input, .text-container {
     height: 55%;
-    width: 75%;
     border-radius: 12px;
     border: solid 1px rgb(255, 255, 255);
     background-color: rgb(255, 255, 255) !important;
     color: black;
     padding: .5% 1.5%;
     font-size: 90%;
+  }
+
+  .input{
+    width: 75%;
+  }
+
+  .text-container{
+    width: 60%;
+    display: flex;
+    align-items: center;
   }
 
   .input:focus{
@@ -116,4 +125,12 @@
 
   li{
     list-style-type: none;
+  }
+
+  .mic-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55%;
+    width: 20%;
   }
