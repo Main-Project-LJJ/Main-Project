@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './login.css';
 import axios from 'axios';
 import { ToastContainer,toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const Login = () => {
+const Login = ({setLogin}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const link = useNavigate();
@@ -33,7 +33,8 @@ const Login = () => {
       .then(res =>{
         console.log(res);
         if(res.data.data ==='ok'){
-          link("/admin-view");
+          setLogin(true);
+          link("/dashboard");
         }else if(res.data.data === 'wrong pass'){
           failure("Enter correct password");
         }else if (res.data.data === 'wrong user'){
