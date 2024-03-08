@@ -33,6 +33,15 @@ def admin():
         res=list(coll.find({'key':'not answered'}, {'_id': 0}))
     return jsonify(res)
 
+@app.route('/count',methods=['GET', 'POST'])
+def count():
+    key, value = 'key', 'answered'
+    key1,value1 = 'key', 'not answered'
+    query, query1 = {key : value}, {key1 : value1}
+    c = coll.count_documents(query)
+    c1 = coll.count_documents(query1)
+    return jsonify(c,c1)
+
 @app.route('/login',methods=['POST'])
 def login():
 

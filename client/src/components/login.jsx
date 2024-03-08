@@ -31,7 +31,6 @@ const Login = ({setLogin}) => {
         'password':password.trim()
       })
       .then(res =>{
-        console.log(res);
         if(res.data.data ==='ok'){
           setLogin(true);
           link("/dashboard");

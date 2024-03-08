@@ -4,24 +4,35 @@
     align-items: center;
     height: 100vh;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(153, 196, 236) 0%, rgb(115, 167, 206) 90.1% );
+    padding: 1%;
 }
 
 .container {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: .2fr 4fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: .5fr repeat(4, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
     height: 100%;
     width: 100%;
-    place-items: center;
-    overflow: hidden;
 }
 
+.navbar{
+    grid-area: 1 / 1 / 2 / 6;
+}
 
 .drop-box {
-    width:40%;
-    height: 0%;
+    grid-area: 2 / 1 / 6 / 4;
+    gap: 5%;
+}
+
+.pie-chart{
+    grid-area: 2 / 4 / 4 / 6;
+}
+
+.div4 {
+    grid-area: 4 / 4 / 6 / 6; 
+    background-color: bisque;
 }
 
 .body-div {
