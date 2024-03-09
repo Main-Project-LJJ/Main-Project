@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(153, 196, 236) 0%, rgb(115, 167, 206) 90.1% );
 }
 
@@ -87,7 +88,7 @@
     width: 95%;
     background-color: #666666;
     border-radius: 15px;
-    padding: 2.5%;
+    padding: 1.5%;
 }
 
 .card{
