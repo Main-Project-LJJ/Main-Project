@@ -103,6 +103,8 @@
 
 .card-d{
     display: flex;
+    justify-content: space-evenly;
+    width: 60%;
     gap: 5%;
 }
 
