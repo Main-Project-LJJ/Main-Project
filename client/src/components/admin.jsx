@@ -4,7 +4,7 @@ import Select from 'react-select';
 import axios from 'axios';
 import Error from './images/Error.png';
 import { useNavigate } from 'react-router-dom';
-import { Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import {Chart as ChartJS} from 'chart.js/auto';
 
 
@@ -61,7 +61,7 @@ const Admin = ({isLogin, setLogin}) =>{
 
     useEffect(() => {
       if (isLogin){
-        const fData= async()=>{
+        const fData = async()=>{
           try{
             await axios.post('http://127.0.0.1:5000/admin',{"query" : search})
             .then(res =>{
@@ -94,18 +94,28 @@ const Admin = ({isLogin, setLogin}) =>{
       <div className="admin">
         {isLogin ? (
           <>
+          <div className="main-container">
           <div className="container">
-              <div className="navbar"><label>DashBoard</label></div>
-              <div className="drop-box">
-                      <Select
-                      className='select'
-                      id="dropdown"
-                      options={options}
-                      value={selected}
-                      onChange={handleSelectChange}
-                      isSearchable={false}
-                      styles={customStyles}
-                      />
+              <div className="navbar">
+                <div className='dash-div'>
+                <label>DASHBOARD</label>
+                <svg className="ad" xmlns="http://www.w3.org/2000/svg" height='40' width='40' viewBox="0 0 512 512">
+                  <path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/>
+                </svg>
+                </div>
+              </div>
+              <div className="data-box">
+                <div className="drop-box">
+                  <Select
+                    className='select'
+                    id="dropdown"
+                    options={options}
+                    value={selected}
+                    onChange={handleSelectChange}
+                    isSearchable={false}
+                    styles={customStyles}
+                  />
+                </div>
               <div className='body-div'>
                 {data.map((item,index)=>(
                     <div className='data' key={index} style={{backgroundColor: index % 2 === 0 ? '#f2f2f2' : '#bfbfbf'}}>
@@ -116,10 +126,31 @@ const Admin = ({isLogin, setLogin}) =>{
               </div>
               </div>
               <div className="pie-chart">
-                <Pie data={chartData} options={chartOptions}/>
+                <Doughnut data={chartData} options={chartOptions}/>
               </div>
-              <div className="div4">div4</div>
+              <div className="profile-container">
+                <div className="profile">
+                  <label>Profile</label>
+                </div>
+                <div className="content">
+                <svg xmlns="http://www.w3.org/2000/svg" height={250} width={100} viewBox="0 0 448 512">
+                  <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>
+                </svg>
+                <div className='card'>
+                  <div>
+                  <label>User Name:</label>
+                  <p>admin</p>
+                  </div>
+                  <div>
+                  <label>Password:</label>
+                  <p>admin</p>
+                  </div>
+                </div>
+                </div>
+              </div>
             </div>
+            </div>
+            
           </>
         ):(
           <>
