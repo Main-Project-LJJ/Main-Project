@@ -32,6 +32,8 @@ def admin():
     elif query == "nAns": 
         res=list(coll.find({'key':'not answered'}, {'_id': 0}))
     return jsonify(res)
+# For Showing all Queries in dashboard
+
 
 @app.route('/count',methods=['GET', 'POST'])
 def count():
@@ -41,6 +43,8 @@ def count():
     c = coll.count_documents(query)
     c1 = coll.count_documents(query1)
     return jsonify(c,c1)
+# For Donut Chart in dashboard
+
 
 @app.route('/profile',methods=['GET', 'POST'])
 def profile():
@@ -48,6 +52,40 @@ def profile():
     if res:
         return jsonify(res)
     return jsonify({'data':'No'})
+# To retrieve username and password to show in dashboard
+
+@app.route('/profileUpdate', methods=['POST'])
+def profileUpdate():
+
+    try:
+        req=request.json
+        check= req.get('check','')
+        res= coll1.find({})
+        print(res)
+        if res:
+            if check:
+                name=req.get('query','')
+                if res.get('name','') == name: return jsonify({'data':'exists'})
+                else:
+                    filterQuery= {'name':res.get('name','')}
+                    updateOperation= {'$set':{'name':name}}
+                    output= coll1.update_one(filterQuery,updateOperation)
+                    if output.acknowledged: return jsonify({'data':'updated'})
+                    else: return jsonify({'data':'fail'})
+            else:
+                password=req.get('query','')
+                if res.get('pass','') == password: return jsonify({'data':'exists'})
+                else:
+                    filterQuery= {'pass':res.get('pass','')}
+                    updateOperation= {'$set':{'pass':password}}
+                    output= coll1.update_one(filterQuery,updateOperation)
+                    if output.acknowledged: return jsonify({'data':'updated'})
+                    else: return jsonify({'data':'fail'})
+
+    except Exception as e:
+        print('Exception',e)
+        return jsonify({"error":"invalid query"}),500  
+
 
 @app.route('/login',methods=['POST'])
 def login():
@@ -66,7 +104,9 @@ def login():
 
     except Exception as e :
         print("Exception",e)
-        return jsonify({"error":"invalid query"}),500
+        return jsonify({"error":"invalid query"}),500    
+# For login page
+
     
 @app.route('/chat',methods=['POST'])
 def chat():
@@ -85,7 +125,6 @@ def chat():
             req_query = {'$or':queries}
             
             res=list(collection.find(req_query))
-            print(res)
 
             if res:
                 find = req.get('query','')
@@ -122,7 +161,8 @@ def chat():
     except Exception as e :
         print("Exception",e)
         return jsonify({"error":"invalid query"}),500
-    
+# For chat response   
+
 
 @app.route('/')
 def index():
