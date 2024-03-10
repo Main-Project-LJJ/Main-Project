@@ -104,9 +104,15 @@
 
 .card-d{
     display: flex;
-    justify-content: space-evenly;
-    width: 60%;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 100%;
     gap: 5%;
+    background-color: #8d8d8d;
+}
+
+.uname, .upass, .button{
+    height: 100%;
 }
 
 .drop-box{

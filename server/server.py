@@ -42,6 +42,13 @@ def count():
     c1 = coll.count_documents(query1)
     return jsonify(c,c1)
 
+@app.route('/profile',methods=['GET', 'POST'])
+def profile():
+    res=list(coll1.find({}, {'_id': 0}))
+    if res:
+        return jsonify(res)
+    return jsonify({'data':'No'})
+
 @app.route('/login',methods=['POST'])
 def login():
 
@@ -78,6 +85,7 @@ def chat():
             req_query = {'$or':queries}
             
             res=list(collection.find(req_query))
+            print(res)
 
             if res:
                 find = req.get('query','')
