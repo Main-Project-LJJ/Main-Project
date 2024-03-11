@@ -56,35 +56,42 @@ def profile():
 
 @app.route('/profileUpdate', methods=['POST'])
 def profileUpdate():
-
     try:
-        req=request.json
-        check= req.get('check','')
-        res= coll1.find({},{'_id': 0})
-        print(res)
+        req = request.json
+        check = req.get('check', '')
+        res = coll1.find_one({}, {'_id': 0})
+
         if res:
-            if check:
-                name=req.get('query','')
-                if res.get('name','') == name: return jsonify({'data':'exists'})
+            if check == 0:
+                name = req.get('query', '')
+                if res.get('name', '') == name:
+                    return jsonify({'data': 'exists'})
                 else:
-                    filterQuery= {'name':res.get('name','')}
-                    updateOperation= {'$set':{'name':name}}
-                    output= coll1.update_one(filterQuery,updateOperation)
-                    if output.acknowledged: return jsonify({'data':'updated'})
-                    else: return jsonify({'data':'fail'})
+                    filter_query = {'name': res.get('name', '')}
+                    update_operation = {'$set': {'name': name}}
+                    output = coll1.update_one(filter_query, update_operation)
+                    if output.acknowledged:
+                        return jsonify({'data': 'updated'})
+                    else:
+                        return jsonify({'data': 'fail'})
             else:
-                password=req.get('query','')
-                if res.get('pass','') == password: return jsonify({'data':'exists'})
+                password = req.get('query', '')
+                if res.get('pass', '') == password:
+                    return jsonify({'data': 'exists'})
                 else:
-                    filterQuery= {'pass':res.get('pass','')}
-                    updateOperation= {'$set':{'pass':password}}
-                    output= coll1.update_one(filterQuery,updateOperation)
-                    if output.acknowledged: return jsonify({'data':'updated'})
-                    else: return jsonify({'data':'fail'})
+                    filter_query = {'pass': res.get('pass', '')}
+                    update_operation = {'$set': {'pass': password}}
+                    output = coll1.update_one(filter_query, update_operation)
+                    if output.acknowledged:
+                        return jsonify({'data': 'updated'})
+                    else:
+                        return jsonify({'data': 'fail'})
+        else:
+            return jsonify({'data': 'fail'})
 
     except Exception as e:
-        print('Exception',e)
-        return jsonify({"error":"invalid query"}),500  
+        print('Exception', e)
+        return jsonify({"error": "invalid query"}), 500
 
 
 @app.route('/login',methods=['POST'])
