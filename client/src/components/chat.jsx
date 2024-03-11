@@ -28,7 +28,7 @@ const Chat = () => {
 
   const sendMsg = () => {
     const cInput = mic ? transcript : input;
-
+    console.log(chatMessages);
     if (cInput.trim() !== '') {
       setChatMessages((prevMessages) => [
         ...prevMessages,
@@ -38,13 +38,11 @@ const Chat = () => {
 
       axios.post('http://127.0.0.1:5000/chat',{"query" : cInput.replace(/\./g, ' ').trim()})
       .then(response =>{
-        console.log(response.data.data[0]);
         setChatMessages((prevMessages) => [
           ...prevMessages,{type: 'bot', text: response.data.data[0].res }
         ]);
       })
       .catch(err =>{
-        console.log(err);
         setChatMessages((prevMessages) => [
           ...prevMessages,{type: 'bot', text: ["Oops! Something went wrong. Please try again in a moment."] }
         ]);

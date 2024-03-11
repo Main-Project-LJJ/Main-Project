@@ -176,6 +176,7 @@ const Admin = ({isLogin, setLogin}) =>{
                     styles={customStyles}
                   />
                 </div>
+              
               <div className='body-div'>
                 {data.map((item,index)=>(
                     <div className='data' key={index} style={{backgroundColor: index % 2 === 0 ? '#f2f2f2' : '#bfbfbf'}}>
