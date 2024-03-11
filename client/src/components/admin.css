@@ -68,8 +68,11 @@
 
 .profile-container {
     grid-area: 4 / 4 / 6 / 6; 
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
     padding: 2%;
     border-radius: 20px;
     box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px, rgb(0, 0, 0) 0px 7px 8px -1px, rgba(64, 64, 64, 0.67) 0px 1px 0px inset;
@@ -77,7 +80,7 @@
 
 .profile{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     font-size: x-large;
 }
@@ -91,13 +94,13 @@
     width: 95%;
     background-color: #cccccc;
     border-radius: 15px;
-    padding: 1.5%;
+    padding: 1%;
 }
 
 .card{
     display: flex;
     flex-direction: column;
-    gap: 20%;
+    gap: 15%;
     justify-content: center;
     width: 80%;
     height: 100%;
@@ -124,7 +127,6 @@
 .label{
     display: flex;
     justify-content: center;
-    /* background-color: #666666; */
     width: 40%;
 }
 

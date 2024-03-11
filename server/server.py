@@ -60,7 +60,7 @@ def profileUpdate():
     try:
         req=request.json
         check= req.get('check','')
-        res= coll1.find({})
+        res= coll1.find({},{'_id': 0})
         print(res)
         if res:
             if check:
