@@ -47,7 +47,7 @@
   justify-content: center;
   height: 60%;
   padding: 2%;
-  gap: 5%;
+  gap: 10%;
   font-size: large;
 }
 
@@ -57,11 +57,12 @@
 
 .login-input {
   width: 100%;
-  padding: 3%;
+  padding-left: 1.5%;
+  padding-bottom: 3%;
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: medium;
+  font-size: large;
   border-bottom: 2.5px solid black;
 }
 
