@@ -67,7 +67,6 @@ const Admin = ({isLogin, setLogin}) =>{
             .then(res =>{
               setNewUser(res.data[0].name);
               setNewPass(res.data[0].pass);
-              console.log(newUser,newPass);
             })
             .catch(e => console.error(e));
           }catch(e) {
