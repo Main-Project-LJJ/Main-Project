@@ -100,7 +100,6 @@ const Admin = ({isLogin, setLogin}) =>{
             await axios.post('http://127.0.0.1:5000/admin',{"query" : search})
             .then(res =>{
               setData(res.data);
-              // console.log(res.data);
             })
             .catch(err => console.log(err));
           }catch(e){

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ToastContainer,toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import image from './images/login.png';
 
 
 const Login = ({setLogin}) => {
@@ -49,32 +50,35 @@ const Login = ({setLogin}) => {
   return (
     <div className="login">
         <div className="login-container">
-          <h2>Login</h2>
-          <form onSubmit={handleSubmit} method='POST'>
-            <div className="form-group">
-              <label htmlFor="username">Username:</label>
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
+          <h1>Login</h1>
+          <div className='form-container'>
+            <img className='login-img' src={image} alt="Login" />
+            <div className='form'>
+              <form onSubmit={handleSubmit} method='POST'>
+                <div className="form-group">
+                  <label htmlFor="username">Username:</label>
+                  <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Password:</label>
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <button type="submit">Login</button>
+                </div>
+              </form>
             </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <button type="submit">Login</button>
-            </div>
-          </form>
+          </div>
           <ToastContainer />
         </div>
     </div>
