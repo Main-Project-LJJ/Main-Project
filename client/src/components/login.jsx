@@ -58,6 +58,7 @@ const Login = ({setLogin}) => {
                 <div className="form-group">
                   <label htmlFor="username">Username:</label>
                   <input
+                    className='login-input'
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -66,15 +67,16 @@ const Login = ({setLogin}) => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="password">Password:</label>
-                  <input
+                  <input 
+                    className='login-input'
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </div>
-                <div className="form-group">
-                  <button type="submit">Login</button>
+                <div className="form-button">
+                  <button className='login-button' type="submit">Login</button>
                 </div>
               </form>
             </div>

@@ -44,27 +44,42 @@
 .form-group{
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 50%;
+  justify-content: center;
+  height: 60%;
   padding: 2%;
   gap: 5%;
+  font-size: large;
 }
 
-.form-group input {
+.form-group label{
+  margin-right: 100%;
+}
+
+.login-input {
   width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 3%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: medium;
+  border-bottom: 2.5px solid black;
 }
 
-button {
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: inherit !important;
+}
+
+.form-button button {
   background-color: #367CFF;
   color: #fff;
   padding: 10px;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
-  width: 100%;
+  width: 60%;
+  font-size: medium;
 }
