@@ -51,7 +51,7 @@ const Admin = ({isLogin, setLogin}) =>{
     const warning = (msg) =>{
       toast.warn( msg, {
         position: "top-right",
-        autoClose: 1500,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -134,7 +134,9 @@ const Admin = ({isLogin, setLogin}) =>{
       sessionStorage.removeItem('loggedIn');
       warning('logging out...');
       setLogDiv(false);
-      setLogin(false);
+      setTimeout(() => {
+        setLogin(false);
+      }, 2000);
     }
 
     return(
