@@ -7,7 +7,11 @@ const Profile = (props) => {
         <div 
           className='label1' 
           contentEditable={props.div ? 'true' : 'false'} 
-          onBlur={(e)=>props.setValue((e)=>e.target.innerText)} 
+          onBlur={(e)=>{
+            if (e.target && e.target.innerText) {
+              props.setValue(e.target.innerText);
+            }
+          }} 
         >
           {props.value}
         </div>
