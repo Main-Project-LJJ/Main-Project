@@ -8,8 +8,8 @@ const Donut = ({count})=>{
         datasets: [
           {
             data: count.every(value => value === 0) ? [0.1,0] : count,
-            backgroundColor: count.every(value => value === 0) ? ['rgba(0, 0, 0, 0.1)'] : ['#00FF40', '#E62020'],
-            hoverBackgroundColor: ['#3FFF00','#F40009'],
+            backgroundColor: count.every(value => value === 0) ? ['rgba(0, 0, 0, 0.01)'] : ['#00FF40', '#E62020'],
+            hoverBackgroundColor: count.every(value => value === 0) ? ['rgba(0, 0, 0, 0.05)'] : ['#3FFF00','#F40009'],
             borderWidth: 2.5,
           },
         ],
