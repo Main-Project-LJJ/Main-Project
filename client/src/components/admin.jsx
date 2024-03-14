@@ -6,6 +6,7 @@ import Data from './adminComp/data';
 import ErrorComp from './adminComp/error';
 import Profile from './adminComp/profile';
 import Error from './images/Error.png';
+import NoResult from './images/No-result.png';
 import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,6 +19,7 @@ const Admin = ({isLogin, setLogin}) =>{
     const [newPass, setNewPass] = useState('');
     const [div1, setDiv1] = useState(false);    
     const [div2, setDiv2] = useState(false);
+    const [logDiv, setLogDiv] = useState(false);
 
     const handleSelectChange = (selectedOption) => {
         setSelected(selectedOption);
@@ -46,16 +48,28 @@ const Admin = ({isLogin, setLogin}) =>{
       });
     };
 
+    const warning = (msg) =>{
+      toast.warn( msg, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
+
+    useEffect(() => {
+      const loggedIn = sessionStorage.getItem('loggedIn');
+      if (loggedIn === 'true') {
+        setLogin(true);
+      }
+    }, []);
+
     useEffect(() => {
       if (isLogin){
         const count = async()=>{
           try{
-            await axios.get('http://127.0.0.1:5000/count')
-            .then(res =>{
-              setCount(res.data);
-            })
-            .catch(e => console.error(e));
-
             await axios.get('http://127.0.0.1:5000/profile')
             .then(res =>{
               setNewUser(res.data[0].name);
@@ -79,6 +93,12 @@ const Admin = ({isLogin, setLogin}) =>{
               setData(res.data);
             })
             .catch(err => console.log(err));
+
+            await axios.get('http://127.0.0.1:5000/count')
+            .then(res =>{
+              setCount(res.data);
+            })
+            .catch(e => console.error(e));
           }catch(e){
             console.error(e);
           }
@@ -110,6 +130,13 @@ const Admin = ({isLogin, setLogin}) =>{
       }
     }
 
+    const Logout = () =>{
+      sessionStorage.removeItem('loggedIn');
+      warning('logging out...');
+      setLogDiv(false);
+      setLogin(false);
+    }
+
     return(
       <div className="admin">
         {isLogin ? (
@@ -119,13 +146,19 @@ const Admin = ({isLogin, setLogin}) =>{
               <div className="navbar">
                 <div className='dash-div'>
                 <label>DASHBOARD</label>
-                <svg className="ad" xmlns="http://www.w3.org/2000/svg" height='40' width='40' viewBox="0 0 512 512">
+                <svg className="ad" xmlns="http://www.w3.org/2000/svg" onClick={(e) => setLogDiv(!logDiv)} height={40} width={40} viewBox="0 0 512 512">
                   <path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/>
                 </svg>
                 </div>
               </div>
+              <div className={logDiv ? 'logout' : 'log'} onClick={Logout}>
+                <label>Log Out</label>
+                <svg className='svg' xmlns="http://www.w3.org/2000/svg" height={20} width={20}  viewBox="0 0 512 512">
+                  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z"/>
+                </svg>
+              </div>
               <div className="data-box">
-                <Data selected={selected} data={data} handleSelectChange={handleSelectChange} />
+                <Data selected={selected} data={data} handleSelectChange={handleSelectChange} NoResult={NoResult} />
               </div>
               <div className="pie-chart">
                 <Donut count={count}/>
@@ -164,7 +197,6 @@ const Admin = ({isLogin, setLogin}) =>{
               </div>
             </div>
             </div>
-            <ToastContainer />
           </>
         ):(
           <>
@@ -173,6 +205,7 @@ const Admin = ({isLogin, setLogin}) =>{
             </div>
           </>
         )}
+        <ToastContainer />
       </div>
     )
 }

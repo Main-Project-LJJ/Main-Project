@@ -33,6 +33,7 @@ const Login = ({setLogin}) => {
       })
       .then(res =>{
         if(res.data.data ==='ok'){
+          sessionStorage.setItem('loggedIn', 'true');
           setLogin(true);
           link("/dashboard");
         }else if(res.data.data === 'wrong pass'){

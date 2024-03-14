@@ -36,12 +36,23 @@ const Data = (props) =>{
                 />
             </div>
             <div className='body-div'>
-              {props.data.map((item,index)=>(
-                  <div className='data' key={index} style={{backgroundColor: index % 2 === 0 ? '#f2f2f2' : '#bfbfbf'}}>
-                    <div>{item.query}</div>
-                    <div>{item.key}</div>
+              {props.data.length === 0 ? (
+                <>
+                  <div className='no-res'>
+                    <img src={props.NoResult} alt="No-Results-Found" />
+                    <h2>No Results Found</h2>  
                   </div>
-              ))}
+                </>
+              ) : (
+                <>
+                  {props.data.map((item,index)=>(
+                    <div className='data' key={index} style={{backgroundColor: index % 2 === 0 ? '#f2f2f2' : '#bfbfbf'}}>
+                      <div>{item.query}</div>
+                      <div>{item.key}</div>
+                    </div>
+                  ))}
+                </>
+              )}
             </div>
         </>
     )

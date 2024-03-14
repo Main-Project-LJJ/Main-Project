@@ -41,6 +41,33 @@
     width: 15%;
 }
 
+.log{
+    display: none;
+    margin-left: 89%;
+    margin-top: 2%;
+}
+
+.logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4.5%;
+    width: 7.25%;
+    height: 3%;
+    padding: .25%;
+    position: absolute;
+    font-size: larger;
+    background-color: aliceblue;
+    border: 2px solid black;
+    margin-left: 89%;
+    margin-top: 4.5%;
+    
+}
+
+.logout label:hover{
+    text-decoration: underline;
+}
+
 .ad{
     fill: #4d4d4d;
 }
@@ -190,6 +217,21 @@
     width: 70%; 
     height: 5%;
     font-size: larger;
+}
+
+.no-res{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+    height: 100%;
+    width: 100%;
+}
+
+.no-res img{
+    height: 80%;
+    width: 55%;
 }
 
 .body-div::-webkit-scrollbar {
