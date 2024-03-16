@@ -83,9 +83,6 @@ const Chat = () => {
             </div>
             <div className="mic-container">
               {listening ? (
-                // <svg  onClick={(e)=>SpeechRecognition.stopListening()} xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                //   <path fill="#F40009" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256-96a96 96 0 1 1 0 192 96 96 0 1 1 0-192zm0 224a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
-                // </svg>
                 <svg className='i' onClick={(e)=>SpeechRecognition.stopListening()} xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
                   <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm192-96H320c17.7 0 32 14.3 32 32V320c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32V192c0-17.7 14.3-32 32-32z"/>
                 </svg>
