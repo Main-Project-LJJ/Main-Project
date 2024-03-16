@@ -2,7 +2,6 @@ import random, re
 from flask import Flask , jsonify , request
 from pymongo import MongoClient
 from flask_cors import CORS
-from textblob import TextBlob
 
 
 app = Flask(__name__)
@@ -126,9 +125,7 @@ def chat():
         if query :
             pattern = r'[^\w\s]'
             clean_query = re.sub(pattern, '', query)
-            blob = TextBlob(clean_query)
-            print(blob.correct())
-            words = blob.correct().split()
+            words = clean_query.correct().split()
             queries = [
                 {'key': {'$in': [' '.join(words[i:i+n]) for i in range(len(words)-n+1)]}}
                 for n in range(1, len(words) + 1)
