@@ -125,7 +125,8 @@ def chat():
         if query :
             pattern = r'[^\w\s]'
             clean_query = re.sub(pattern, '', query)
-            words = clean_query.correct().split()
+            words = clean_query.split()
+            print(words)
             queries = [
                 {'key': {'$in': [' '.join(words[i:i+n]) for i in range(len(words)-n+1)]}}
                 for n in range(1, len(words) + 1)
