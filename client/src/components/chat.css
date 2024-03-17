@@ -191,15 +191,15 @@
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   /* Your tablet styles here */
   .chat{
-    height: 90vh;
-    width:90%;
+    height: 65vh;
+    width:70%;
   }
   .dis{
     height: 85%;
   }
 
   .msg{
-    height:8vh;
+    height:5vh;
     width: 90%;
     bottom: 3.5%;
   }
