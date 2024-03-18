@@ -239,6 +239,17 @@
     width: 65%;
     height: 60%;
   }
+  .bot{
+    max-width: 90%;
+    padding: 3%;
+    margin: 1px;
+    margin-bottom: 3px;
+  }
+  .user{
+    padding: 3%;
+    margin: 1px;
+    margin-bottom: 3px;
+  }
 }
 
 /* For larger desktops and laptops */
