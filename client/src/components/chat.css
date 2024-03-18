@@ -8,17 +8,15 @@
   
   .chat {
     overflow: hidden;
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
     position: relative;
     border-radius: 20px;
-    border: 3px solid white;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
 
   .dis {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     overflow-y: auto;
     padding: 1%;
     background-color: #525353;
@@ -47,7 +45,7 @@
   
   .msg {
     display: flex;
-    background-color: rgb(61, 59, 59); 
+    background-color: rgba(61, 59, 59, 0.9); 
     position: absolute;
     justify-content: space-around;
     align-items: center;
@@ -99,24 +97,14 @@
     display: flex;
     flex-direction: column;
     width: 95%;
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-  }
-
-  .user { 
-    background: linear-gradient(to bottom, #525353 0%, #e495c6 100%);
-    color: #fff;
-  }
-
-  .bot {
-    background-color: rgb(243, 238, 238);   
   }
 
   .tt {
     display: flex;
     flex-direction: column;
-    /* padding: 2px; */
     max-width: 90%;
     text-overflow: ellipsis;
+    padding: 1%;
   }
   
   .tt li {
@@ -127,25 +115,24 @@
   
   .tt p {
     margin: 0;
-    /* padding: 1px; */
     border-radius: 16px;
-    font-size: medium;
+    font-size: 1.075em;
     line-height: 20px;
   }
 
   .user-msg{
     display: flex;
+    gap: .5%;
   }
 
   .user-icon{
-    /* background-color: #525353; */
     padding: .5%;
+    margin: 2px;
   }
 
   .user-msg-div{
     display: flex;
     flex-direction: column;
-    gap: 1.5%;
     width: 90%;
     padding: 1%;
   }
@@ -153,6 +140,11 @@
   .user-msg-div label{
     justify-content: flex-start;
     font-size: large;
+  }
+
+  .bot-icon img{
+    height: 100%;
+    width: 100%;
   }
 
   .mic-container{
@@ -218,6 +210,14 @@
     white-space: nowrap;
     padding: 3%;
   }
+  .bot-icon{
+    height: 2.2rem;
+    width: 12%;
+    margin: 2px;
+  }
+  .user-msg-div{
+    gap: 0px;
+  }
 }
 
 /* For tablets and small desktops */
@@ -256,12 +256,12 @@
 @media only screen and (min-width: 992px) {
   .chat{
     height: 80vh;
-    width:50%;
+    width: 50%;
     padding: 1% 1%;
   }
 
   .dis{
-    height: 90%;
+    height: 85%;
   }
 
   .msg{
@@ -296,11 +296,19 @@
     width: 20%;
   }
   .user, .bot{
-    /* margin: 1px; */
     max-width: 95%;
-    padding: 1.5%;
   }
   .user{
     white-space: nowrap;
+  }
+
+  .bot-icon{
+    height: 2.2rem;
+    width: 5%;
+    margin: 2px;
+  }
+
+  .user-msg-div{
+    gap: 5px;
   }
 }
