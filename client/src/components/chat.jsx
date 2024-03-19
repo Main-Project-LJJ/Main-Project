@@ -26,8 +26,9 @@ const Chat = () => {
   const messagesEndRef = useRef();
   const inputRef = useRef();
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
+  const [loading, setloading] = useState(false);
 
-  const sendMsg = () => {
+  const sendMsg = async() => {
     const cInput = mic ? transcript : input;
     console.log(chatMessages);
     if (cInput.trim() !== '') {
@@ -35,20 +36,25 @@ const Chat = () => {
         ...prevMessages,
         { type: 'user', text: [cInput] },
       ]);
+      
+      setloading(true);
 
-
-      axios.post('http://127.0.0.1:5000/chat',{"query" : cInput.replace(/\./g, ' ').trim()})
+      await axios.post('http://127.0.0.1:5000/chat',{"query" : cInput.replace(/\./g, ' ').trim()})
       .then(response =>{
-        setChatMessages((prevMessages) => [
-          ...prevMessages,{type: 'bot', text: response.data.data[0].res }
-        ]);
+        setTimeout(() => {
+          setChatMessages(prevMessages => [
+            ...prevMessages,
+            { type: 'bot', text: response.data.data[0].res }
+          ]);
+          setloading(false);
+        }, 2000);
       })
       .catch(err =>{
         setChatMessages((prevMessages) => [
           ...prevMessages,{type: 'bot', text: ["Oops! Something went wrong. Please try again in a moment."] }
         ]);
+        setloading(false)
       })
-      
       setInput('');
       resetTranscript();
       if (!mic){
@@ -66,6 +72,11 @@ const Chat = () => {
   return (
     <div className='main'>
       <div className='chat'>
+        <div className={loading ? 'loading' : 'not-loading'}>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+        </div>
         <div className='dis'>
             {chatMessages.map((message, index) => (
               message.type === 'user' ? (

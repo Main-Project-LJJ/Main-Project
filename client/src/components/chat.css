@@ -55,6 +55,58 @@
     padding: .5% 1%;
     border: solid 3px white;
   }
+
+  .loading, .not-loading{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    gap: 5%;
+    padding: 1%;
+    width: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 2s ease-in-out;
+  }
+
+  .not-loading{
+    display: none;
+  }
+
+  .dot{
+    height: .75rem;
+    width: .75rem;
+    border-radius: 15px;
+    background-color: #E30B5C;
+    animation: loading 1s infinite ease-in-out;
+  }
+
+  .dot:nth-child(1){
+    animation-delay: -0.3s;
+  }
+
+  .dot:nth-child(3){
+    animation-delay: 0.1s;
+  }
+
+  @keyframes loading{
+    0%{
+      transform: scale(1);
+    }
+    
+    50%{
+      transform: scale(.5);
+    }
+
+    100%{
+      transform: scale(1);
+    }
+  }
   
   .input, .text-container {
     border-radius: 12px;
@@ -117,7 +169,7 @@
     margin: 0;
     border-radius: 16px;
     font-size: 1.075em;
-    line-height: 20px;
+    line-height: 25px;
   }
 
   .user-msg{
@@ -218,6 +270,13 @@
   .user-msg-div{
     gap: 0px;
   }
+
+  .tt p{
+    font-size: medium;
+  }
+  .loading{
+    top: 85%;
+  }
 }
 
 /* For tablets and small desktops */
@@ -310,5 +369,8 @@
 
   .user-msg-div{
     gap: 5px;
+  }
+  .loading{
+    top: 80%;
   }
 }
