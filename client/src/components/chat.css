@@ -23,6 +23,7 @@
     background: transparent;
     border-bottom: #333;
     gap: 2%;
+    scroll-behavior: smooth;
   }
 
   .dis::-webkit-scrollbar {

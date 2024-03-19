@@ -21,7 +21,7 @@ const BotMessage = ({ text }) => {
 
 const Chat = () => {
   const [input, setInput] = useState('');
-  const [chatMessages, setChatMessages] = useState([{type:'bot',text:["Hello and welcome! I'm here and ready to help. What brings you to our conversation?"]}]);
+  const [chatMessages, setChatMessages] = useState([{type:'bot',text:["Hey!👋🏻 I'm ChatWhiz🤖, ready to assist you in your college search!"]}]);
   const [mic, setMic]= useState(false);
   const messagesEndRef = useRef();
   const inputRef = useRef();
@@ -51,7 +51,7 @@ const Chat = () => {
       })
       .catch(err =>{
         setChatMessages((prevMessages) => [
-          ...prevMessages,{type: 'bot', text: ["Oops! Something went wrong. Please try again in a moment."] }
+          ...prevMessages,{type: 'bot', text: ["Oops! 🛑 Something went wrong. Please try again later. Thanks for your understanding😇!"] }
         ]);
         setloading(false)
       })
