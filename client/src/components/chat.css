@@ -149,13 +149,14 @@
   .user, .bot{
     display: flex;
     flex-direction: column;
-    width: 95%;
+    /* background-color: #7895d4; */
+    width: 100%;
   }
 
   .tt {
     display: flex;
     flex-direction: column;
-    max-width: 90%;
+    max-width: 95%;
     text-overflow: ellipsis;
     padding: 1%;
   }
@@ -204,6 +205,39 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .suggestion-div{
+    display: flex;
+    width: 90%;
+    padding: 1.5%;
+    position: absolute;
+    top: 78%;
+  }
+
+  .suggestion{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2%;
+    height: 2em;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sug-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    border: 2px solid #1877F2;
+    border-radius: 15px;
+    color: #1877F2;
+    cursor: pointer;
+  }
+
+  .sug-div:hover{
+    background-color: #f0f8ff9f;
+    transition: .5s;
   }
 
   /* For mobile devices */
@@ -310,6 +344,11 @@
     margin: 1px;
     margin-bottom: 3px;
   }
+  .bot-icon{
+    height: 2.2rem;
+    width: 5%;
+    margin: 2px;
+  }
 }
 
 /* For larger desktops and laptops */
@@ -327,7 +366,7 @@
   .msg{
     height:8vh;
     width: 90%;
-    bottom: 3.5%;
+    bottom: 3%;
   }
 
   .input, .text-container {
@@ -348,8 +387,7 @@
 
   .rec:hover{
     background-color: #6c6c6c;
-    height: 37.5%;
-    width: 5.5%;
+    transition: .5s;
   }
   .mic-container{
     height: 55%;

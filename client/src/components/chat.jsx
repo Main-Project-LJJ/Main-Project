@@ -6,16 +6,30 @@ import logo from './images/logo.png';
 
 const UserMessage = ({ text }) => {
   const content = Object.values(text).map((value, index) => (
-    <div className='tt' key={index}><li key={index}><p>{value}</p></li></div>
+    <div className='tt' key={index}>
+      <li key={index}><p>{value}</p></li>
+    </div>
   ));
   return <div className="user">{content}</div>
 };
 
 const BotMessage = ({ text }) => {
   const content = Object.values(text).map((value, index) => (
-    <div className='tt' key={index}><li key={index}><p>{value}</p></li></div>
+    <div className='tt' key={index}>
+      <li key={index}><p>{value}</p></li>
+    </div>
   ));
   return <div className="bot">{content}</div>
+};
+
+const Suggestion = ({value, setInput, onClick}) => {
+  
+  const content = value.map((message, index) => (
+    <div className="sug-div" key={index} onClick={(e) =>{setInput(message); onClick();}}>
+      <p>{message}</p>
+    </div>
+  ));
+  return <div className="suggestion">{content}</div>;
 };
 
 
@@ -27,6 +41,7 @@ const Chat = () => {
   const inputRef = useRef();
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
   const [loading, setloading] = useState(false);
+  const [suggestion, setSuggestion] = useState(["Need College List?"]);
 
   const sendMsg = async() => {
     const cInput = mic ? transcript : input;
@@ -36,7 +51,7 @@ const Chat = () => {
         ...prevMessages,
         { type: 'user', text: [cInput] },
       ]);
-      
+      setSuggestion([]);
       setloading(true);
 
       await axios.post('http://127.0.0.1:5000/chat',{"query" : cInput.replace(/\./g, ' ').trim()})
@@ -46,6 +61,9 @@ const Chat = () => {
             ...prevMessages,
             { type: 'bot', text: response.data.data[0].res }
           ]);
+          let doc = response.data.data[0]
+          if(doc.sug) setSuggestion(doc.sug);
+          else setSuggestion([]);
           setloading(false);
         }, 2000);
       })
@@ -57,6 +75,7 @@ const Chat = () => {
       })
       setInput('');
       resetTranscript();
+      console.log(suggestion);
       if (!mic){
         inputRef.current.focus();
       }
@@ -78,6 +97,9 @@ const Chat = () => {
           <div className="dot"></div>
         </div>
         <div className='dis'>
+          <div className="suggestion-div">
+            <Suggestion value={suggestion} setInput={setInput} onClick={sendMsg}/>
+          </div>
             {chatMessages.map((message, index) => (
               message.type === 'user' ? (
               <div className='user-msg'>
