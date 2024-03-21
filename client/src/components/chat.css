@@ -84,7 +84,7 @@
     width: .75rem;
     border-radius: 15px;
     background-color: #E30B5C;
-    animation: loading 1s infinite ease-in-out;
+    animation: loading 1.5s infinite ease-in-out;
   }
 
   .dot:nth-child(1){
@@ -101,7 +101,7 @@
     }
     
     50%{
-      transform: scale(.5);
+      transform: scale(0);
     }
 
     100%{
@@ -149,7 +149,6 @@
   .user, .bot{
     display: flex;
     flex-direction: column;
-    /* background-color: #7895d4; */
     width: 100%;
   }
 
