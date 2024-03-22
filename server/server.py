@@ -14,9 +14,10 @@ l=["Apologies, it seems I don't have the information you're looking for. Is ther
 
 client = MongoClient('mongodb://localhost:27017')
 db=client.Tiruchengode
-collection=db.ksrEng
+collection = None
 
 db1=client.Administor
+db2=client.Query
 coll=db1.query
 coll1=db1.login
 
@@ -133,8 +134,13 @@ def chat():
             ]
 
             req_query = {'$or':queries}
+
+            res=[]
+            colldb=db["Colleges"]
             
-            res=list(collection.find(req_query))
+            res=list(colldb.find(req_query))
+            
+            # res=list(collection.find(req_query))
 
             if res:
                 find = req.get('query','')
