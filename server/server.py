@@ -14,10 +14,9 @@ l=["Apologies, it seems I don't have the information you're looking for. Is ther
 
 client = MongoClient('mongodb://localhost:27017')
 db=client.Tiruchengode
-collection = None
+collection=db.ksrEng
 
 db1=client.Administor
-db2=client.Query
 coll=db1.query
 coll1=db1.login
 
@@ -127,20 +126,14 @@ def chat():
             pattern = r'[^\w\s]'
             clean_query = re.sub(pattern, '', query)
             words = clean_query.split()
-            print(words)
             queries = [
                 {'key': {'$in': [' '.join(words[i:i+n]) for i in range(len(words)-n+1)]}}
                 for n in range(1, len(words) + 1)
             ]
 
             req_query = {'$or':queries}
-
-            res=[]
-            colldb=db["Colleges"]
             
-            res=list(colldb.find(req_query))
-            
-            # res=list(collection.find(req_query))
+            res=list(collection.find(req_query))
 
             if res:
                 find = req.get('query','')

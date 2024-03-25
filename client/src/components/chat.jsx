@@ -22,17 +22,6 @@ const BotMessage = ({ text }) => {
   return <div className="bot">{content}</div>
 };
 
-const Suggestion = ({value, setInput, onClick}) => {
-  
-  const content = value.map((message, index) => (
-    <div className="sug-div" key={index} onClick={(e) =>{setInput(message); onClick();}}>
-      <p>{message}</p>
-    </div>
-  ));
-  return <div className="suggestion">{content}</div>;
-};
-
-
 const Chat = () => {
   const [input, setInput] = useState('');
   const [chatMessages, setChatMessages] = useState([{type:'bot',text:["Hey!👋🏻 I'm ChatWhiz🤖, ready to assist you in your college search!"]}]);
@@ -98,7 +87,14 @@ const Chat = () => {
         </div>
         <div className='dis'>
           <div className="suggestion-div">
-            <Suggestion value={suggestion} setInput={setInput} onClick={sendMsg}/>
+            <div className="suggestion">
+              {suggestion.map((message, index) => (
+                  <div className="sug-div" key={index} onClick={(e) =>{setInput(message); sendMsg()}}>
+                    <p>{message}</p>
+                  </div>
+                ))
+              }
+            </div>
           </div>
             {chatMessages.map((message, index) => (
               message.type === 'user' ? (
