@@ -10,17 +10,39 @@ const UserMessage = ({ text }) => {
       <li key={index}><p>{value}</p></li>
     </div>
   ));
-  return <div className="user">{content}</div>
+  return <div className="user">{content}</div>;
 };
 
 const BotMessage = ({ text }) => {
-  const content = Object.values(text).map((value, index) => (
-    <div className='tt' key={index}>
-      <li key={index}><p>{value}</p></li>
-    </div>
-  ));
-  return <div className="bot">{content}</div>
+  const [open, setOpen] = useState(true);
+  const content = Object.values(text).map((value, index) => {
+    if (Array.isArray(value)) {
+      return (
+        <div className="tt" key={index}>
+          {open ? (
+            <>
+              <img src={value[0]} alt={"image"} onClick={(e) => setOpen(!open)}/>
+            </>
+          ) : (
+          <>
+            {value.map((imageUrl, i) => (
+              <img key={i} src={imageUrl} alt={"image"} />
+            ))}
+          </>
+          )}
+        </div>
+      );
+    } else if (typeof value === 'string') {
+      return (
+        <div className='tt' key={index}>
+          <p key={index}>{value}</p>
+        </div>
+      );
+    }
+  });
+  return <div className="bot">{content}</div>;
 };
+
 
 const Chat = () => {
   const [input, setInput] = useState('');
@@ -112,7 +134,7 @@ const Chat = () => {
                 ) : (
                   <div className="user-msg">
                     <div className="bot-icon">
-                      <img src={logo} alt="logo"/>
+                      <img src={logo} alt={"logo"}/>
                     </div>
                     <div className="user-msg-div">
                       <label><b>ChatWhiz</b></label>

@@ -172,6 +172,11 @@
     font-size: 1.075em;
     line-height: 25px;
   }
+  .tt img{
+    height: 50%;
+    width: 100%;
+    /* background-color: #333; */
+  }
 
   .user-msg{
     display: flex;
@@ -359,7 +364,7 @@
   }
 
   .dis{
-    height: 85%;
+    height: 84%;
   }
 
   .msg{

@@ -2,7 +2,7 @@ import random, re
 from flask import Flask , jsonify , request
 from pymongo import MongoClient
 from flask_cors import CORS
-
+from pymongo.collection import Collection
 
 app = Flask(__name__)
 CORS(app, origins='*')
@@ -14,7 +14,7 @@ l=["Apologies, it seems I don't have the information you're looking for. Is ther
 
 client = MongoClient('mongodb://localhost:27017')
 db=client.Tiruchengode
-collection=db.ksrEng
+collection: Collection = None
 
 db1=client.Administor
 coll=db1.query
@@ -117,7 +117,7 @@ def login():
     
 @app.route('/chat',methods=['POST'])
 def chat():
-
+    global collection
     try:
         req=request.json
         query=req.get('query','').lower()
@@ -132,9 +132,19 @@ def chat():
             ]
 
             req_query = {'$or':queries}
-            
-            res=list(collection.find(req_query))
+            print(req_query)
+            res = []
 
+            if collection is not None:            
+                res=list(collection.find(req_query))
+
+            colldb=db["Colleges"]
+            res1=list(colldb.find(req_query))
+            if res1:
+                res = res1
+                if 'db' in res[0]:
+                    collection=db[res[0]['db']]
+            
             if res:
                 find = req.get('query','')
 
