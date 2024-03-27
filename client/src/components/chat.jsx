@@ -3,6 +3,7 @@ import './chat.css';
 import axios from 'axios';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import logo from './images/logo.png';
+import Carousel from './chatComp/carousel';
 
 const UserMessage = ({ text }) => {
   const content = Object.values(text).map((value, index) => (
@@ -21,13 +22,13 @@ const BotMessage = ({ text }) => {
         <div className="tt" key={index}>
           {open ? (
             <>
-              <img src={value[0]} alt={"image"} onClick={(e) => setOpen(!open)}/>
+              <div className="img-container" onClick={(e) => setOpen(!open)}>
+                <img src={value[0]} alt={"image"}/>
+              </div>
             </>
           ) : (
           <>
-            {value.map((imageUrl, i) => (
-              <img key={i} src={imageUrl} alt={"image"} />
-            ))}
+            <Carousel value={value}/>
           </>
           )}
         </div>
