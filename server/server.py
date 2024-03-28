@@ -3,9 +3,6 @@ from flask import Flask , jsonify , request
 from pymongo import MongoClient
 from flask_cors import CORS
 from pymongo.collection import Collection
-import base64
-from PIL import Image
-from io import BytesIO
 
 app = Flask(__name__)
 CORS(app, origins='*')
