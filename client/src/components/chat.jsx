@@ -14,23 +14,16 @@ const UserMessage = ({ text }) => {
   return <div className="user">{content}</div>;
 };
 
-const BotMessage = ({ text }) => {
-  const [open, setOpen] = useState(true);
+const BotMessage = ({ text, setImages, setOpen}) => {
   const content = Object.values(text).map((value, index) => {
     if (Array.isArray(value)) {
+      setImages(value);
       return (
         <div className="tt" key={index}>
-          {open ? (
-            <>
-              <div className="img-container" onClick={(e) => setOpen(!open)}>
-                <img src={value[0]} alt={"image"}/>
-              </div>
-            </>
-          ) : (
-          <>
-            <Carousel value={value}/>
-          </>
-          )}
+          <div className="img-container" onClick={(e) => setOpen(true)}>
+            <img src={value[0]} alt={"image"}/>
+            <p>click image for more images☝🏻</p>
+          </div>
         </div>
       );
     } else if (typeof value === 'string') {
@@ -54,6 +47,8 @@ const Chat = () => {
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
   const [loading, setloading] = useState(false);
   const [suggestion, setSuggestion] = useState(["Need College List?"]);
+  const [open, setOpen] = useState(false);
+  const [images, setImages] = useState([]);
 
   const sendMsg = async() => {
     const cInput = mic ? transcript : input;
@@ -139,7 +134,7 @@ const Chat = () => {
                     </div>
                     <div className="user-msg-div">
                       <label><b>ChatWhiz</b></label>
-                      <BotMessage key={index} text={message.text} />
+                      <BotMessage key={index} text={message.text} setImages={setImages} setOpen={setOpen}/>
                     </div>
                   </div>
               )
@@ -194,6 +189,11 @@ const Chat = () => {
           )}
         </div>
       </div>
+      {open ? (
+        <Carousel value={images} setOpen={setOpen}/>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

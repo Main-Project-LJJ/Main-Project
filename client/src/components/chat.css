@@ -175,7 +175,6 @@
   .tt img{
     height: 50%;
     width: 100%;
-    /* background-color: #333; */
   }
 
   .user-msg{
@@ -245,19 +244,61 @@
   }
   .img-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 2%;
     width: 75%;
+    border-radius: 10px;
     background-color: #333;
+    color: white;
   }
 
   .img-container img{
     width: 100%;
     height: 100%;
+    cursor: pointer;
   }
+  
   .carousel{
-    /* position: absolute; */
-    background-color: #333;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #4f4f4fda;
+    height: 72%;
+    width: 50%;
+    border-radius: 20px;
+    transition: 3s ease-in-out;
+  }
+
+  .caro-label{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1%;
+    width: 97%;
+    /* background-color: #6c6c6c; */
+  }
+  .caro-label label{
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    width: 3%;
+  }
+  .caro-label label:hover{
+    background-color: #a5a4a4;
+  }
+  
+  .slider-div{
+    height: 90%;
+    width: 90%;
+  }
+  .img_div{
+    background-color: #525353;
+    height: 30rem;
+  }
+
+  .img_div img{
     height: 100%;
     width: 100%;
   }
